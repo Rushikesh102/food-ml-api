@@ -63,7 +63,8 @@ def fast_food_recommend():
         res = res[res['Protein Level'] >= 0]
         # print("Protein n")
         # print(res)
-    json_data = res['Product'].to_json(orient='records')
+    res['Result']=res['Company']+" "+res['Product']
+    json_data = res['Result'].to_json(orient='records')
     # json_data=json.dumps(res)
     return json_data
 
