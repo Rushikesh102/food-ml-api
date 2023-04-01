@@ -40,7 +40,9 @@ def normal_recommend():
 def fast_food_recommend():
     args = request.args
     a = args.get('restaurants')
-    b = int(args.get('hunger'))
+    b = args.get('hunger')
+    if(b!=''):
+        b=int(b)
     c = args.get('protein')
     obj = Restaurants()
     res = obj.recommend_fast_food(a,b,c)
