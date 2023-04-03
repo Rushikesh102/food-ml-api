@@ -5,11 +5,6 @@ from normal import Normal
 from restaurants import Restaurants
 app = Flask(__name__)
 
-@app.route('/',methods=['GET'])
-def home():
-    args = request.args
-    food = args.get('food')
-    return {'food':food}
 @app.route('/normal_getNames')
 def normal_getNames():
     import pandas as pd
