@@ -33,16 +33,16 @@ def normal_recommend():
         res = res[res['flavor_profile'] == flavor_profile]
     if (course != ''):
         res = res[res['course'] == course]
-    json_data = res['name'].to_json(orient='records')
-
+    json_data = res.to_json(orient='records')
+    # print(res.keys())
     return json_data
 @app.route('/fast_food_recommend',methods=['GET'])
 def fast_food_recommend():
     args = request.args
     a = args.get('restaurants')
     b = args.get('hunger')
-    if(b!=''):
-        b=int(b)
+    if (b != ''):
+        b = int(b)
     c = args.get('protein')
     obj = Restaurants()
     res = obj.recommend_fast_food(a,b,c)
@@ -63,8 +63,8 @@ def fast_food_recommend():
         res = res[res['Protein Level'] >= 0]
         # print("Protein n")
         # print(res)
-    res['Result']=res['Company']+" "+res['Product']
-    json_data = res['Result'].to_json(orient='records')
+    # res['Result']=res['Company']+" "+res['Product']
+    json_data = res.to_json(orient='records')
     # json_data=json.dumps(res)
     return json_data
 
