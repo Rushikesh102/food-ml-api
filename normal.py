@@ -46,7 +46,7 @@ class Normal:
         # sort in descending order the similarity score of food inputted with all the other foods
         similarity_score = sorted(similarity_score, key=lambda x: x[1], reverse=True)
         # Get the scores of the 15 most similar foods. Ignore the first food.
-        similarity_score = similarity_score[1:15]
+        similarity_score = similarity_score[0:30]
         # return food names using the mapping series
         data_indices = [i[0] for i in similarity_score]
         return (Normal.data.iloc[data_indices])
