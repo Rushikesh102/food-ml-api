@@ -55,7 +55,7 @@ def fast_food_recommend():
         # print("Protein y")
         # print(res)
     if (c != '' and c=='n'):
-        res = res[res['Protein Level'] >= 0 and res['Protein Level'] <2]
+        res = res[res['Protein Level'] <2]
         # print("Protein n")
         # print(res)
     # res['Result']=res['Company']+" "+res['Product']
